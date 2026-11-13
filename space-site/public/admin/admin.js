@@ -1,0 +1,28 @@
+const $=id=>document.getElementById(id);let T=sessionStorage.getItem('t')||'',C={};
+const H=()=>({'Content-Type':'application/json',Authorization:'Bearer '+T});
+async function call(p,o={}){const r=await fetch('/api/'+p,{...o,headers:H()}),j=await r.json().catch(()=>({}));if(r.status===401&&p!=='login'){out();throw new Error('Session expired')}if(!r.ok)throw new Error(j.error||r.status);return j}
+function out(){T='';sessionStorage.removeItem('t');$('app').classList.add('hide');$('login').classList.remove('hide')}
+$('out').onclick=out;$('view').onclick=()=>open('/','_blank');
+$('go').onclick=async()=>{$('le').textContent='';try{const r=await fetch('/api/login',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:$('pw').value})}),j=await r.json();if(!r.ok)throw new Error(j.error);T=j.token;sessionStorage.setItem('t',T);start()}catch(e){$('le').textContent=e.message}};
+$('pw').onkeydown=e=>{if(e.key==='Enter')$('go').click()};
+const blank=v=>Array.isArray(v)?v.map(blank):v&&typeof v==='object'?Object.fromEntries(Object.entries(v).map(([k,x])=>[k,blank(x)])):typeof v==='string'?'':v;
+const clone=v=>JSON.parse(JSON.stringify(v)),nice=k=>k.replace(/([A-Z])/g,' $1').replace(/_/g,' ');
+function field(o,k){const v=o[k],w=document.createElement('div');
+ if(k==='photo'){w.innerHTML='<label>Photo</label>';const im=document.createElement('img');im.className='pv';im.src=v||'';im.style.display=v?'block':'none';const f=document.createElement('input');f.type='file';f.accept='image/*';
+  f.onchange=()=>{const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k2=Math.min(1,720/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*k2;c.height=i.height*k2;c.getContext('2d').drawImage(i,0,0,c.width,c.height);o[k]=c.toDataURL('image/jpeg',.82);im.src=o[k];im.style.display='block'};i.src=r.result};r.readAsDataURL(f.files[0])};
+  const x=document.createElement('button');x.className='btn';x.type='button';x.textContent='Remove photo';x.onclick=()=>{o[k]='';im.style.display='none'};w.append(im,f,x);return w}
+ if(Array.isArray(v)&&(!v.length||typeof v[0]==='string')){w.innerHTML='<label>'+nice(k)+' (one per line)</label>';const t=document.createElement('textarea');t.rows=Math.max(3,v.length+1);t.value=v.join('\n');t.oninput=()=>o[k]=t.value.split('\n').map(s=>s.trim()).filter(Boolean);w.appendChild(t);return w}
+ if(Array.isArray(v)){const fs=document.createElement('fieldset');fs.innerHTML='<legend>'+nice(k)+'</legend>';const tpl=blank(v[0]);const draw=()=>{[...fs.querySelectorAll('.item')].forEach(e=>e.remove());v.forEach((it,i)=>{const d=document.createElement('div');d.className='item';Object.keys(it).forEach(kk=>d.appendChild(field(it,kk)));const b=document.createElement('button');b.type='button';b.className='btn';b.textContent='Delete this '+k.replace(/s$/,'');b.onclick=()=>{v.splice(i,1);draw()};d.appendChild(b);fs.insertBefore(d,add)})};
+  const add=document.createElement('button');add.type='button';add.className='btn p';add.textContent='+ Add';add.onclick=()=>{v.push(clone(tpl));draw()};fs.appendChild(add);draw();return fs}
+ if(v&&typeof v==='object'){const fs=document.createElement('fieldset');fs.innerHTML='<legend>'+nice(k)+'</legend>';Object.keys(v).forEach(kk=>fs.appendChild(field(v,kk)));return fs}
+ w.innerHTML='<label>'+nice(k)+'</label>';const long=String(v).length>70||/text|sub|intro|^p\d?$/.test(k),i=document.createElement(long?'textarea':'input');if(long)i.rows=4;i.value=v;i.oninput=()=>o[k]=i.value;w.appendChild(i);return w}
+function build(){const c=$('content');c.innerHTML='';Object.keys(C).forEach(k=>c.appendChild(field(C,k)))}
+async function start(){$('login').classList.add('hide');$('app').classList.remove('hide');
+ try{const [r,d]=await Promise.all([fetch('/api/content').then(r=>r.json()),fetch('/content.default.json').then(r=>r.json())]);C=Object.assign(clone(d),r&&!r.error?r:{});build();$('st').textContent=''}catch(e){$('st').textContent='Could not load content: '+e.message}}
+$('save').onclick=async()=>{$('st').textContent='Saving…';try{await call('content',{method:'PUT',body:JSON.stringify({content:C})});$('st').textContent='✅ Saved — live within ~20 seconds'}catch(e){$('st').textContent='⚠️ '+e.message}};
+document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.toggle('on',x===b));['content','messages','comments'].forEach(s=>$(s).classList.toggle('hide',s!==b.dataset.t));$('sv').classList.toggle('hide',b.dataset.t!=='content');if(b.dataset.t!=='content')lst(b.dataset.t)});
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+async function lst(t){const el=$(t);el.innerHTML='<p>Loading…</p>';try{const r=await call(t==='comments'?'comments?all=1':'contact'),it=r.items||[];
+ el.innerHTML=it.length?it.map(x=>'<div class="msg"><div class="row"><b>'+esc(x.name)+'</b><small>'+new Date(x.at).toLocaleString()+'</small></div>'+(t==='messages'?'<small><a style="color:var(--b)" href="mailto:'+esc(x.email)+'">'+esc(x.email)+'</a></small>':'<small>on <b>'+esc(x.project)+'</b></small>')+'<p>'+esc(t==='messages'?x.message:x.text)+'</p><button class="btn" data-id="'+x._id+'">Delete</button></div>').join(''):'<p>Nothing here yet.</p>';
+ el.querySelectorAll('button[data-id]').forEach(b=>b.onclick=async()=>{if(!confirm('Delete?'))return;await call((t==='comments'?'comments':'contact')+'?id='+b.dataset.id,{method:'DELETE'});lst(t)})}catch(e){el.innerHTML='<p class="err">'+esc(e.message)+'</p>'}}
+if(T)start();

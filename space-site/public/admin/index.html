@@ -1,0 +1,8 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Space — Admin</title>
+<link rel="stylesheet" href="admin.css"></head><body>
+<div id="login"><h2 style="letter-spacing:.3em">SPACE ADMIN</h2><p style="color:var(--mut)">Enter your admin password</p><input id="pw" type="password" placeholder="Password" autocomplete="current-password"><button class="btn p" id="go" style="width:100%">Log in</button><p class="err" id="le"></p></div>
+<div id="app" class="hide"><header><b>SPACE · ADMIN</b><nav><button data-t="content" class="on">Content</button><button data-t="messages">Messages</button><button data-t="comments">Comments</button></nav><button class="btn" id="out">Log out</button></header>
+<main><section id="content"></section><section id="messages" class="hide"></section><section id="comments" class="hide"></section></main>
+<div class="save" id="sv"><span id="st"></span><button class="btn" id="view">View site ↗</button><button class="btn p" id="save">Save changes</button></div></div>
+<script src="admin.js"></script></body></html>

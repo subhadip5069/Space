@@ -1,0 +1,148 @@
+{
+ "hero": {
+  "tag": "Open to work · Dubai · Remote",
+  "name": "Subhadip Dey",
+  "sub": "I build the “invisible core” of digital products — fast Node.js backends, automation and performance-growth systems that scale without failing."
+ },
+ "about": {
+  "p1": "I specialise in Node.js backend architecture, API development, streaming systems and automation pipelines that help businesses move faster and operate more efficiently — across real-time video processing, AI-powered platforms, workflow automation and performance-driven growth.",
+  "p2": "Alongside engineering, I run email marketing, social media marketing and lead generation. My goal: bridge technology and marketing — robust systems that automate work, reach the right audience and scale."
+ },
+ "aboutme": {
+  "title": "About me",
+  "text": "I’m Subhadip Dey — a backend engineer and performance-marketing specialist from India. I turn messy workflows into fast, reliable systems, and I’m just as curious about the universe as I am about code.",
+  "photo": "",
+  "facts": [
+   "📍 India · open to Dubai, UAE and remote",
+   "🎓 B.A. Philosophy · Node.js Developer (WebSkitters)",
+   "💼 BluConnet Media · Founder of Dcore Lab",
+   "🌌 Stargazer, space-mission nerd, builder"
+  ]
+ },
+ "skills": [
+  {
+   "t": "Backend",
+   "items": [
+    "Node.js, Express.js",
+    "GraphQL, RabbitMQ",
+    "WebRTC, FFmpeg",
+    "REST APIs, PostgreSQL, MongoDB"
+   ]
+  },
+  {
+   "t": "DevOps",
+   "items": [
+    "Docker, CI/CD",
+    "Google Cloud Platform",
+    "VPS deployments, Nginx"
+   ]
+  },
+  {
+   "t": "Security",
+   "items": [
+    "OAuth 2.0, JWT",
+    "Authentication systems",
+    "Access control"
+   ]
+  },
+  {
+   "t": "Growth & Marketing",
+   "items": [
+    "CPA, CPL, CPI, CPS, RevShare",
+    "Email & social marketing",
+    "Lead generation, CRO"
+   ]
+  },
+  {
+   "t": "Automation & AI",
+   "items": [
+    "WhatsApp APIs, messaging",
+    "Workflow automation",
+    "Gen AI, chatbots"
+   ]
+  },
+  {
+   "t": "Tracking",
+   "items": [
+    "S2S postbacks, click IDs, SubIDs",
+    "Attribution & reporting",
+    "Commission & payout logic"
+   ]
+  }
+ ],
+ "exp": [
+  {
+   "d": "JUN 2026 — NOW",
+   "t": "Affiliate Relations Manager",
+   "c": "BluConnet Media · Remote",
+   "items": [
+    "Manage CPA, CPL, CPI, CPS and RevShare campaigns across GEOs",
+    "Onboard advertisers, networks and publishers",
+    "Optimise ROI, EPC, CR, LTV; fraud and compliance control"
+   ]
+  },
+  {
+   "d": "JAN 2026 — NOW",
+   "t": "Founder",
+   "c": "Dcore Lab · Kolkata",
+   "items": [
+    "Technical architecture and product delivery",
+    "Scalable web apps and automated systems",
+    "Backend engineering and client solutions"
+   ]
+  },
+  {
+   "d": "JUN 2025 — MAR 2026",
+   "t": "Back End Developer",
+   "c": "Bravfox Solution · Gurugram",
+   "items": [
+    "Web apps, e-commerce and portals",
+    "Chatbots and AI-powered modules",
+    "Digital marketing & Meta/Google Ads support"
+   ]
+  },
+  {
+   "d": "FEB — AUG 2025",
+   "t": "MERN Developer",
+   "c": "Digital Start · Gurugram",
+   "items": [
+    "Specific backend development",
+    "Payment gateways, React.js, MongoDB"
+   ]
+  },
+  {
+   "d": "AUG 2023 — NOV 2024",
+   "t": "Full Stack Engineer (Intern)",
+   "c": "WebSkitters Academy",
+   "items": [
+    "JavaScript, EJS, MongoDB",
+    "Node.js developer programme"
+   ]
+  }
+ ],
+ "projects": [
+  {
+   "t": "Sajawat Studios",
+   "d": "JAN — FEB 2026",
+   "p": "Elite interior-design firm website: 3D visualisation, architectural planning, bespoke furniture curation. REST APIs, Cloudinary.",
+   "l": "https://sajawatstudios.com/"
+  },
+  {
+   "t": "Affiliate Platform",
+   "d": "DCORE LAB",
+   "p": "Modular backend connecting Admin, Affiliate and Advertiser panels — click & S2S postback tracking, commissions, audit logs, PostgreSQL.",
+   "l": ""
+  },
+  {
+   "t": "ASUR",
+   "d": "2025 — NOW",
+   "p": "Personal portfolio project built with Node.js and MongoDB.",
+   "l": ""
+  }
+ ],
+ "contact": {
+  "email": "subha@bluconnetmedia.com",
+  "telegram": "deysubha06",
+  "intro": "Direct advertisers, affiliate managers, founders and teams — send a message or write to me directly."
+ }
+}

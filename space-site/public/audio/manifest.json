@@ -1,0 +1,226 @@
+{
+  "_help": "Drop real recordings into /audio and keep the filenames below (or change them). Missing files are skipped and the built-in synthesised sound plays instead. Optional per-sound fields: gain (0-1.5), start/end (seconds, loop a clean section), rate (playback speed), mix ('layer' keeps the synth underneath), credit (shown in the footer when the file plays).",
+  "credit": "NASA",
+  "sounds": {
+    "Sun": {
+      "file": "audio/sun.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Moon": {
+      "file": "audio/moon.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Earth": {
+      "file": "audio/earth.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "ISS": {
+      "file": "audio/iss.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Mercury": {
+      "file": "audio/mercury.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Venus": {
+      "file": "audio/venus.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Mars": {
+      "file": "audio/mars.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Jupiter": {
+      "file": "audio/jupiter.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Saturn": {
+      "file": "audio/saturn.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Uranus": {
+      "file": "audio/uranus.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Neptune": {
+      "file": "audio/neptune.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Comet": {
+      "file": "audio/comet.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Red Giant": {
+      "file": "audio/red-giant.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Binary Star": {
+      "file": "audio/binary-star.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Pulsar": {
+      "file": "audio/pulsar.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Crab Pulsar": {
+      "file": "audio/crab-pulsar.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Vela Pulsar": {
+      "file": "audio/vela-pulsar.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "PSR B1919+21": {
+      "file": "audio/psr-b1919.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Geminga Pulsar": {
+      "file": "audio/geminga-pulsar.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Pleiades Cluster": {
+      "file": "audio/pleiades.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Beehive Cluster": {
+      "file": "audio/beehive.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Double Cluster": {
+      "file": "audio/double-cluster.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Omega Centauri": {
+      "file": "audio/omega-centauri.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Orion Nebula": {
+      "file": "audio/orion-nebula.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Ring Nebula": {
+      "file": "audio/ring-nebula.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Eagle Nebula": {
+      "file": "audio/eagle-nebula.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Lagoon Nebula": {
+      "file": "audio/lagoon-nebula.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Veil Nebula": {
+      "file": "audio/veil-nebula.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Crab Nebula": {
+      "file": "audio/crab-nebula.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Supernova": {
+      "file": "audio/supernova.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Gamma-Ray Burst (GRB)": {
+      "file": "audio/grb.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Supermassive Black Hole": {
+      "file": "audio/black-hole.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Gravitational Waves": {
+      "file": "audio/gravitational-waves.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Wormhole (theoretical)": {
+      "file": "audio/wormhole.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Galactic Center (Sagittarius A*)": {
+      "file": "audio/galactic-center.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Spiral Galaxy": {
+      "file": "audio/spiral-galaxy.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Andromeda Galaxy": {
+      "file": "audio/andromeda.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Elliptical Galaxy": {
+      "file": "audio/elliptical-galaxy.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Triangulum Galaxy": {
+      "file": "audio/triangulum.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Quasar": {
+      "file": "audio/quasar.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Galaxy Cluster": {
+      "file": "audio/galaxy-cluster.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Cosmic Web": {
+      "file": "audio/cosmic-web.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Dark Matter": {
+      "file": "audio/dark-matter.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    },
+    "Big Bang": {
+      "file": "audio/big-bang.mp3",
+      "gain": 1,
+      "credit": "NASA"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "space-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Space \u2014 3D portfolio with MongoDB backend",
+  "dependencies": {
+    "mongodb": "^6.8.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
