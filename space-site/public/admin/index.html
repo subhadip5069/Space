@@ -4,12 +4,194 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex">
-  <meta name="theme-color" content="#070914">
+  <meta name="theme-color" content="#080b16">
   <title>Space — Admin</title>
-  <link rel="stylesheet" href="admin.css">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080b16;
+      --surface: #101528;
+      --surface-raised: #151c32;
+      --text: #edf2ff;
+      --muted: #9aa8c3;
+      --line: rgba(173, 190, 226, .15);
+      --mint: #65e8d7;
+      --violet: #ad8bff;
+      --danger: #ff929e;
+      --shadow: 0 24px 70px rgba(0, 0, 0, .35);
+    }
+
+    * { box-sizing: border-box; }
+    html { min-height: 100%; background: var(--bg); }
+    body {
+      min-width: 320px;
+      min-height: 100vh;
+      margin: 0;
+      color: var(--text);
+      background: radial-gradient(ellipse at 50% -20%, rgba(80, 107, 181, .2), transparent 55%), var(--bg);
+      font: 15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    button, input, textarea { font: inherit; }
+    button { color: inherit; }
+    .hide { display: none !important; }
+
+    /* Login */
+    #login {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      min-height: 100svh;
+      place-items: center;
+      overflow: hidden;
+      padding: 48px 20px 72px;
+      background: radial-gradient(ellipse at 50% 45%, rgba(86, 91, 166, .16), transparent 52%);
+    }
+    #login::before, #login::after {
+      position: absolute;
+      z-index: -1;
+      top: 47%;
+      left: 50%;
+      width: min(78vw, 760px);
+      aspect-ratio: 1;
+      border: 1px solid rgba(173, 139, 255, .09);
+      border-radius: 50%;
+      content: "";
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+    }
+    #login::after { width: min(60vw, 580px); border-color: rgba(101, 232, 215, .08); }
+    .login-card {
+      width: min(100%, 430px);
+      padding: 40px 42px 28px;
+      border: 1px solid rgba(183, 197, 235, .16);
+      border-radius: 25px;
+      background: linear-gradient(155deg, rgba(20, 27, 49, .97), rgba(13, 17, 33, .98));
+      box-shadow: var(--shadow), 0 0 70px rgba(128, 113, 255, .07);
+      backdrop-filter: blur(18px);
+    }
+    .login-mark {
+      display: grid;
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 23px;
+      place-items: center;
+      border: 1px solid rgba(101, 232, 215, .25);
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(101, 232, 215, .14), rgba(173, 139, 255, .14));
+      color: var(--mint);
+      box-shadow: 0 0 32px rgba(101, 232, 215, .1);
+    }
+    .login-mark svg { width: 30px; height: 30px; }
+    .login-eyebrow { margin: 0 0 8px; color: var(--mint); font-size: 10px; font-weight: 750; letter-spacing: .24em; text-align: center; }
+    .login-card h1 { margin: 0; font-size: clamp(26px, 7vw, 32px); font-weight: 680; letter-spacing: -.045em; text-align: center; }
+    .login-copy { margin: 8px 0 30px; color: var(--muted); text-align: center; }
+    .login-label { display: block; margin: 0 0 8px; color: #d3ddf2; font-size: 12px; font-weight: 650; letter-spacing: .04em; }
+    #pw, input, textarea {
+      width: 100%;
+      min-height: 47px;
+      margin: 0 0 15px;
+      padding: 11px 14px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      outline: none;
+      background: #0b1020;
+      color: var(--text);
+      transition: border-color .18s, box-shadow .18s, background .18s;
+    }
+    #pw { height: 51px; }
+    input::placeholder, textarea::placeholder { color: #74819d; }
+    #pw:focus, input:focus, textarea:focus { border-color: rgba(101, 232, 215, .72); background: #0e1426; box-shadow: 0 0 0 3px rgba(101, 232, 215, .1); }
+    .btn {
+      display: inline-flex;
+      min-height: 40px;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 9px 17px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .025);
+      color: var(--text);
+      cursor: pointer;
+      text-decoration: none;
+      transition: transform .18s, border-color .18s, background .18s, filter .18s;
+    }
+    .btn:hover { transform: translateY(-1px); border-color: rgba(101, 232, 215, .48); background: rgba(101, 232, 215, .07); }
+    .btn:focus-visible, nav button:focus-visible { outline: 2px solid var(--mint); outline-offset: 3px; }
+    .btn.p { border: 0; background: linear-gradient(105deg, var(--mint), #9ddfdc 53%, #c1a6ff); color: #07121a; font-weight: 750; }
+    .btn.p:hover { filter: brightness(1.07); }
+    .login-submit { width: 100%; min-height: 49px; margin-top: 3px; border-radius: 11px; box-shadow: 0 8px 26px rgba(101, 232, 215, .12); }
+    .login-arrow { font-size: 19px; line-height: 1; }
+    .err { min-height: 20px; margin: 10px 0 0; color: var(--danger); font-size: 13px; text-align: center; }
+    .login-divider { height: 1px; margin: 16px 0 15px; background: linear-gradient(90deg, transparent, var(--line), transparent); }
+    .login-footnote { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 0; color: #929fba; font-size: 12px; }
+    .status-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); box-shadow: 0 0 10px rgba(101, 232, 215, .7); }
+    .login-copyright { position: absolute; bottom: 17px; margin: 0; color: #626e88; font-size: 9px; font-weight: 650; letter-spacing: .2em; text-align: center; }
+    .login-copyright span { padding: 0 5px; color: var(--mint); }
+
+    /* Admin dashboard */
+    #app > header {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      display: flex;
+      min-height: 68px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px clamp(16px, 4vw, 38px);
+      border-bottom: 1px solid var(--line);
+      background: rgba(8, 11, 22, .9);
+      backdrop-filter: blur(16px);
+    }
+    #app > header b { font-size: 13px; letter-spacing: .24em; white-space: nowrap; }
+    nav { display: flex; align-items: center; gap: 5px; padding: 4px; border: 1px solid rgba(173, 190, 226, .1); border-radius: 999px; background: rgba(255, 255, 255, .025); }
+    nav button { min-height: 34px; padding: 7px 14px; border: 0; border-radius: 999px; background: transparent; color: var(--muted); cursor: pointer; font-size: 13px; transition: background .18s, color .18s; }
+    nav button:hover { color: var(--text); }
+    nav button.on { background: linear-gradient(100deg, rgba(101, 232, 215, .19), rgba(173, 139, 255, .17)); color: var(--text); box-shadow: inset 0 0 0 1px rgba(173, 190, 226, .12); }
+    main { width: min(100% - 32px, 940px); min-height: calc(100vh - 150px); margin: 0 auto; padding: 32px 0 110px; }
+    main section { animation: appear .24s ease both; }
+    @keyframes appear { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    fieldset { min-width: 0; margin: 0 0 18px; padding: 18px; border: 1px solid var(--line); border-radius: 16px; background: linear-gradient(145deg, rgba(17, 23, 42, .94), rgba(13, 18, 34, .94)); box-shadow: 0 8px 28px rgba(0, 0, 0, .12); }
+    legend { padding: 0 9px; color: var(--mint); font-size: 11px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+    label { display: block; margin: 0 0 5px; color: #aebbd3; font-size: 11px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+    input, textarea { margin: 3px 0 13px; background: #0b1020; }
+    textarea { min-height: 96px; resize: vertical; }
+    .item { margin: 0 0 12px; padding: 14px; border: 1px dashed rgba(173, 190, 226, .2); border-radius: 13px; background: rgba(255, 255, 255, .018); }
+    .item:last-child { margin-bottom: 12px; }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .msg { margin: 0 0 13px; padding: 17px 19px; border: 1px solid var(--line); border-radius: 15px; background: linear-gradient(145deg, rgba(17, 23, 42, .94), rgba(13, 18, 34, .94)); }
+    .msg small { color: var(--muted); }
+    .msg p { margin: 8px 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+    .msg a { color: var(--mint); }
+    img.pv { display: block; max-width: 180px; max-height: 180px; margin: 8px 0 12px; border: 1px solid var(--line); border-radius: 13px; object-fit: cover; }
+    .save { position: fixed; z-index: 4; right: 0; bottom: 0; left: 0; display: flex; align-items: center; justify-content: flex-end; gap: 10px; padding: 12px clamp(14px, 4vw, 38px); border-top: 1px solid var(--line); background: rgba(8, 11, 22, .91); backdrop-filter: blur(16px); }
+    #st { margin-right: auto; color: var(--muted); font-size: 13px; }
+
+    @media (max-width: 640px) {
+      .login-card { padding: 34px 25px 24px; border-radius: 21px; }
+      #app > header { justify-content: space-between; gap: 10px; }
+      #app > header b { font-size: 11px; letter-spacing: .15em; }
+      #app > header > .btn { padding: 7px 12px; font-size: 12px; }
+      nav { order: 3; width: 100%; justify-content: center; }
+      nav button { flex: 1; padding: 7px 9px; font-size: 12px; }
+      main { width: min(100% - 24px, 940px); padding-top: 22px; }
+      fieldset { padding: 14px; }
+      .save { gap: 7px; padding: 10px 12px; }
+      .save .btn { min-height: 38px; padding: 7px 11px; font-size: 12px; }
+      #st { max-width: 34%; font-size: 11px; }
+    }
+    @media (max-width: 380px) {
+      .login-card { padding: 30px 20px 22px; }
+      .save .btn { padding-inline: 8px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-  <div id="login" class="login-screen">
+  <div id="login">
     <div class="login-card">
       <div class="login-mark" aria-hidden="true">
         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -20,12 +202,9 @@
       <p class="login-eyebrow">SPACE · CONTROL ROOM</p>
       <h1>Welcome back</h1>
       <p class="login-copy">Sign in to manage your Space site.</p>
-
       <label class="login-label" for="pw">Admin password</label>
       <input id="pw" type="password" placeholder="Enter your password" autocomplete="current-password" aria-describedby="le">
-      <button class="btn p login-submit" id="go" type="button">
-        <span>Log in</span><span class="login-arrow" aria-hidden="true">→</span>
-      </button>
+      <button class="btn p login-submit" id="go" type="button"><span>Log in</span><span class="login-arrow" aria-hidden="true">→</span></button>
       <p class="err" id="le" role="alert" aria-live="polite"></p>
       <div class="login-divider" aria-hidden="true"></div>
       <p class="login-footnote"><span class="status-dot"></span>Private admin access</p>
