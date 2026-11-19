@@ -1,8 +1,59 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Space — Admin</title>
-<link rel="stylesheet" href="admin.css"></head><body>
-<div id="login"><h2 style="letter-spacing:.3em">SPACE ADMIN</h2><p style="color:var(--mut)">Enter your admin password</p><input id="pw" type="password" placeholder="Password" autocomplete="current-password"><button class="btn p" id="go" style="width:100%">Log in</button><p class="err" id="le"></p></div>
-<div id="app" class="hide"><header><b>SPACE · ADMIN</b><nav><button data-t="content" class="on">Content</button><button data-t="messages">Messages</button><button data-t="comments">Comments</button></nav><button class="btn" id="out">Log out</button></header>
-<main><section id="content"></section><section id="messages" class="hide"></section><section id="comments" class="hide"></section></main>
-<div class="save" id="sv"><span id="st"></span><button class="btn" id="view">View site ↗</button><button class="btn p" id="save">Save changes</button></div></div>
-<script src="admin.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#070914">
+  <title>Space — Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="login" class="login-screen">
+    <div class="login-card">
+      <div class="login-mark" aria-hidden="true">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 4.5 28.7 19.3 43.5 24l-14.8 4.7L24 43.5l-4.7-14.8L4.5 24l14.8-4.7L24 4.5Z" fill="currentColor"/>
+          <circle cx="36.5" cy="10.5" r="3" fill="currentColor" opacity=".55"/>
+        </svg>
+      </div>
+      <p class="login-eyebrow">SPACE · CONTROL ROOM</p>
+      <h1>Welcome back</h1>
+      <p class="login-copy">Sign in to manage your Space site.</p>
+
+      <label class="login-label" for="pw">Admin password</label>
+      <input id="pw" type="password" placeholder="Enter your password" autocomplete="current-password" aria-describedby="le">
+      <button class="btn p login-submit" id="go" type="button">
+        <span>Log in</span><span class="login-arrow" aria-hidden="true">→</span>
+      </button>
+      <p class="err" id="le" role="alert" aria-live="polite"></p>
+      <div class="login-divider" aria-hidden="true"></div>
+      <p class="login-footnote"><span class="status-dot"></span>Private admin access</p>
+    </div>
+    <p class="login-copyright">SPACE <span>·</span> YOUR LITTLE CORNER OF THE INTERNET</p>
+  </div>
+
+  <div id="app" class="hide">
+    <header>
+      <b>SPACE · ADMIN</b>
+      <nav>
+        <button data-t="content" class="on">Content</button>
+        <button data-t="messages">Messages</button>
+        <button data-t="comments">Comments</button>
+      </nav>
+      <button class="btn" id="out">Log out</button>
+    </header>
+    <main>
+      <section id="content"></section>
+      <section id="messages" class="hide"></section>
+      <section id="comments" class="hide"></section>
+    </main>
+    <div class="save" id="sv">
+      <span id="st"></span>
+      <button class="btn" id="view">View site ↗</button>
+      <button class="btn p" id="save">Save changes</button>
+    </div>
+  </div>
+  <script src="admin.js"></script>
+</body>
+</html>
