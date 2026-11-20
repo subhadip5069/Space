@@ -4,32 +4,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Contact Subhadip Dey about backend engineering, automation and growth projects.">
-  <meta name="theme-color" content="#050711">
+  <meta name="theme-color" content="#010208">
   <title>Contact — Space by Subhadip Dey</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/legal.css">
+  <style>
+    :root{color-scheme:dark;--bg:#010208;--fg:#eaf6ff;--mut:#93a9c9;--line:rgba(150,200,255,.2);--mint:#5ee7df;--violet:#b388ff;font-family:"Space Grotesk","Segoe UI",system-ui,sans-serif;background:var(--bg);color:var(--fg)}
+    *{box-sizing:border-box}html{min-width:320px;min-height:100%;scroll-behavior:smooth}body{position:relative;isolation:isolate;min-width:320px;min-height:100vh;margin:0;overflow-x:hidden;background:var(--bg);color:var(--fg);font:16px/1.7 "Space Grotesk","Segoe UI",system-ui,sans-serif}
+    body:before{position:fixed;z-index:-1;top:3vh;left:-18vw;width:min(56vw,720px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(94,231,223,.15),rgba(124,140,255,.08) 37%,transparent 70%);filter:blur(24px);content:"";pointer-events:none;animation:glow-drift 28s ease-in-out infinite alternate}@keyframes glow-drift{to{transform:translate3d(72vw,38vh,0)}}
+    a{color:var(--mint);text-decoration:none}a:focus-visible{outline:2px solid var(--mint);outline-offset:4px}.header{position:sticky;z-index:5;top:0;display:flex;align-items:center;justify-content:space-between;gap:22px;padding:12px clamp(18px,5vw,76px);border-bottom:1px solid rgba(150,200,255,.12);background:rgba(1,2,8,.82);backdrop-filter:blur(16px)}.brand{display:flex;align-items:center;gap:10px;color:var(--fg);font-family:Syne,sans-serif;font-weight:800;letter-spacing:.18em}.brand img{width:36px;height:36px;object-fit:contain;filter:drop-shadow(0 0 10px rgba(94,231,223,.35))}.brand-dot{color:var(--mint)}.nav,.footer-nav{display:flex;flex-wrap:wrap;gap:10px 24px}.nav a,.footer-nav a{color:var(--mut);font-size:14px}.nav a:hover,.footer-nav a:hover,.nav [aria-current=page]{color:var(--mint)}
+    main{display:grid;min-height:calc(100vh - 155px);align-content:center;width:min(100% - 36px,1040px);margin:auto;padding:40px 0 64px}.back{display:inline-block;margin:0 0 22px;color:var(--mut);font-size:14px}.back:hover{color:var(--mint)}.card{position:relative;width:min(720px,100%);margin:auto;padding:clamp(28px,6vw,62px);overflow:hidden;border:1px solid var(--line);border-radius:24px;background:linear-gradient(145deg,rgba(9,13,28,.9),rgba(3,5,14,.91));box-shadow:0 24px 80px rgba(0,0,0,.32);backdrop-filter:blur(14px);text-align:center}.icon{display:grid;width:62px;height:62px;place-items:center;margin:0 auto 20px;border:1px solid rgba(94,231,223,.3);border-radius:19px;color:var(--mint);background:rgba(94,231,223,.08);font-size:27px}.eyebrow{margin:0 0 11px;color:var(--mint);font-size:11px;font-weight:700;letter-spacing:.22em}.card h1,.hero h1{margin:0 0 18px;font-family:Syne,sans-serif;font-size:clamp(44px,9vw,78px);font-weight:800;letter-spacing:-.055em;line-height:1.04}.card h1 span,.hero h1 span{color:var(--mint)}.lede{max-width:640px;margin:0 auto 28px;color:var(--mut);font-size:clamp(17px,2.4vw,21px)}.options{display:grid;gap:12px;max-width:520px;margin:0 auto 24px}.option{display:flex;align-items:center;gap:14px;padding:15px 17px;border:1px solid var(--line);border-radius:15px;color:var(--fg);background:rgba(255,255,255,.025);text-align:left;transition:transform .2s,border-color .2s,background .2s}.option:hover{transform:translateY(-2px);border-color:rgba(94,231,223,.5);background:rgba(94,231,223,.06)}.option-icon{display:grid;width:42px;height:42px;flex:0 0 42px;place-items:center;border-radius:12px;color:var(--mint);background:rgba(94,231,223,.1)}.option small,.option strong{display:block}.option small{color:var(--mut);font-size:10px;letter-spacing:.15em}.option strong{font-size:15px;overflow-wrap:anywhere}.arrow{margin-left:auto;color:var(--mint)}.note{margin:0;color:var(--mut);font-size:14px}.note a{color:var(--mint)}footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:15px;padding:20px clamp(18px,5vw,76px);border-top:1px solid rgba(150,200,255,.13);background:rgba(1,2,8,.72)}footer small{color:var(--mut)}
+    @media(max-width:640px){.header{align-items:flex-start;flex-direction:column;gap:9px;padding:12px 18px}.nav{gap:8px 18px}.card{padding:30px 19px}.option{gap:10px;padding:13px}.option strong{font-size:13px}footer{align-items:flex-start;flex-direction:column}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <a class="brand" href="/" aria-label="Space home"><span class="brand-mark">✦</span><span>SPACE<span class="brand-dot">.</span></span></a>
-    <nav aria-label="Main navigation"><a href="/">Home</a><a href="/privacy-policy">Privacy</a><a href="/terms-and-conditions">Terms</a></nav>
-  </header>
-  <main class="page-shell contact-shell">
-    <a class="back-link" href="/">← Back to portfolio</a>
-    <section class="contact-card">
-      <div class="contact-orbit" aria-hidden="true">✦</div>
-      <p class="eyebrow">LET’S BUILD SOMETHING</p>
-      <h1>Get in <span>touch.</span></h1>
-      <p class="lede">Have a project, partnership idea, or a question about my work? I’d be glad to hear from you.</p>
-      <div class="contact-options">
-        <a class="contact-option" href="mailto:subha@bluconnetmedia.com"><span class="option-icon">✉</span><span><small>EMAIL</small><strong>subha@bluconnetmedia.com</strong></span><span class="arrow">↗</span></a>
-        <a class="contact-option" href="https://t.me/deysubha06" target="_blank" rel="noopener noreferrer"><span class="option-icon">↗</span><span><small>TELEGRAM</small><strong>@deysubha06</strong></span><span class="arrow">↗</span></a>
-      </div>
-      <p class="contact-note">Prefer the portfolio contact form? <a href="/#contact">Send a message from the homepage →</a></p>
-    </section>
-  </main>
-  <footer class="site-footer"><span>© 2026 Subhadip Dey · Space</span><div><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms &amp; Conditions</a><a href="/contact">Contact</a></div></footer>
+  <header class="header"><a class="brand" href="/" aria-label="Space home"><img src="/assets/black-hole.webp" alt=""><span>SPACE<span class="brand-dot">.</span></span></a><nav class="nav" aria-label="Main navigation"><a href="/">Home</a><a href="/contact" aria-current="page">Contact</a><a href="/privacy-policy">Privacy</a><a href="/terms-and-conditions">Terms</a></nav></header>
+  <main><a class="back" href="/">← Back to portfolio</a><section class="card"><div class="icon" aria-hidden="true">✦</div><p class="eyebrow">LET’S BUILD SOMETHING</p><h1>Get in <span>touch.</span></h1><p class="lede">Have a project, partnership idea, or a question about my work? I’d be glad to hear from you.</p><div class="options"><a class="option" href="mailto:subhadip5069@gmail.com"><span class="option-icon" aria-hidden="true">✉</span><span><small>EMAIL</small><strong>subhadip5069@gmail.com</strong></span><span class="arrow" aria-hidden="true">↗</span></a><a class="option" href="https://t.me/deysubha06" target="_blank" rel="noopener noreferrer"><span class="option-icon" aria-hidden="true">↗</span><span><small>TELEGRAM</small><strong>@deysubha06</strong></span><span class="arrow" aria-hidden="true">↗</span></a></div><p class="note">Prefer the portfolio contact form? <a href="/#contact">Send a message from the homepage →</a></p></section></main>
+  <footer><small>© <span data-year></span> Subhadip Dey · Space</small><nav class="footer-nav" aria-label="Footer navigation"><a href="/">Home</a><a href="/contact" aria-current="page">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms-and-conditions">Terms &amp; Conditions</a></nav></footer>
+  <script>document.querySelectorAll('[data-year]').forEach(node=>node.textContent=new Date().getFullYear());</script>
 </body>
 </html>
